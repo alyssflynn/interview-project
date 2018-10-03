@@ -19,7 +19,8 @@ get '/section/:section_number' do
   response = HTTParty.get('https://www.osha.gov/Publications/OSHA3514.html')
   @doc = Nokogiri::HTML(response)
   sections = @doc.css('div.well.well-small.well-white')
-  output = "#{sections[params[:section_number].to_i]}"
+  index = params[:section_number].to_i - 1
+  output = "#{sections[index]}"
   output
 end
 
