@@ -20,7 +20,11 @@ get '/section/:section_number' do
   @doc = Nokogiri::HTML(response)
   sections = @doc.css('div.well.well-small.well-white')
   index = params[:section_number].to_i - 1
-  output = "#{sections[index]}"
+  if index >= 16 || index < 0
+    output = "This section does not exist!"
+  else
+    output = "#{sections[index]}"
+  end
   output
 end
 
