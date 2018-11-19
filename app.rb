@@ -29,5 +29,5 @@ get '/section/:section_number' do
 end
 
 get '/hello' do
-  "Hello World"
+  "Hello World!"
 end
